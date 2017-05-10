@@ -112,3 +112,23 @@ If you are quick enough, you will see the Review App getting ready for an automa
 
 The build manager now looks at this change live, checks the documentation in the pull request and merges the change into the master (or staging) branch. Now the automatic deploy also fires to bring the staging app back up with the latest version as well. 
 
+If you enabled the CI feature, you should be able to see this in your tests section
+
+![Testing](images/17-autoTest.png)
+
+The deploy will wait until test have run and passed, but once they do you now have a fully functional app that is linked to the pull reqeust that created it. Go ahead and open your app and check your change is functional.
+
+![review deployed](images/18-reviewDeployed.png)
+
+Looks good, go ahead and merge the pull request. This should also start another build on your staging app as it automatically deploys the lastest version of code. Once the testing has finished you should be able to view the build log from the staging pipeline.
+
+![build log](images/19-buildLog.png)
+
+Lastly, let's promote into production 
+
+![promote](images/20-promoteStaging.png)
+![promote](images/21-promoteStaging.png)
+![promote](images/22-promoteStaging.png)
+
+
+
