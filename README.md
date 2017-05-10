@@ -53,10 +53,38 @@ We now have an empty, shell of an application that is awaiting a deploy to produ
 ## Enable Review Apps and Tests
 So there is a very cool feature in Heroku that allows automatic (or manual) creation of a thing called a [Review App](https://devcenter.heroku.com/articles/github-integration-review-apps). A Review App is created when the platform receives a Githook from a pull request that has been created, lets have a look at what that means. 
 
-Firstly, time to grab your codebase. Remember, you want to grab the repository you have connected to your pipeline. 
+On the left you will see a feature that says we can "Enable Review Apps", go ahead and click this button.
+
+![enable btn](images/11-enableReviewBtn.png)
+
+This will show us the modal where we configure how our review apps should be created, there is an interesting option that allows us to specify where we can inherit our configuration from when cretating (i.e. test databases etc.)
+
+![enable](images/12-enableReview.png)
+
+
+## Get Coding!
+Now, time to grab your codebase. Remember, you want to grab the repository you have connected to your pipeline. 
 
 ```
 > git clone https://github.com/ibigfoot/heroku-401.git
+> cd heroku-40-1
 ``` 
+
+Now we are going to build a new feature, so lets create a new local branch for us to work in. 
+
+```
+> git branch new-feature
+> git checkout new-feature
+```
+
+It should look something like this when you are finished.
+
+![new feature](images/9-newFeature.png)
+
+Open up your favourite editor of choice (I will be using Eclipse as usual) and find our file index.ftl 
+
+![index.ftl](images/10-header.ftl.png)
+
+Let's make a few changes and see what happens, I am going to change the title
 
 
