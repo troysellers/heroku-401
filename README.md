@@ -1,3 +1,5 @@
+[Heroku 101](https://github.com/ibigfoot/heroku-101) | [Heroku 201](https://github.com/ibigfoot/heroku-201) | [Heroku 301](https://github.com/ibigfoot/heroku-301) | [Heroku 401](https://github.com/ibigfoot/heroku-401)
+
 # Heroku 401 - Pipelines
 
 For this exercise we are going to use another Java application to work with as we setup a build pipeline in Heroku. There are a few concepts that we need to explore in the platform as to how this works. 
@@ -61,6 +63,7 @@ This will show us the modal where we configure how our review apps should be cre
 
 ![enable](images/12-enableReview.png)
 
+Finally, underneath the Tests (or Settings) tab you can go and click the button that says Enable Heroku CI and turn our pipeline into a continuous integration server as well. Neat huh :)
 
 ## Get Coding!
 Now, time to grab your codebase. Remember, you want to grab the repository you have connected to your pipeline. 
@@ -85,6 +88,48 @@ Open up your favourite editor of choice (I will be using Eclipse as usual) and f
 
 ![index.ftl](images/10-header.ftl.png)
 
-Let's make a few changes and see what happens, I am going to change the title
+Let's make a few changes and see what happens, I am going to change the title of the page to "Building Faster with Heroku Pipelines"
+
+![building faster](images/13-buildingFaster.png)
+
+Now I simply commit and push this branch back to Github and create my [pull request](https://help.github.com/articles/about-pull-requests/).
+
+```
+> git commit -am "new feature done"
+> git push origin new-feature
+```
+
+![git push](images/14-gitPush.png)
+
+![pull request](images/15-pullRequest.png)
+
+Make ready with the Heroku Pipeline open as well, if you have enabled automatic deploys you can see this happen if you are quick.
+
+## Managing a Release
+Back into my pipeline the Release Manager can see that there is a new Review App that has been created and is ready for inspection, along with a link directly to the pull request.
+
+If you are quick enough, you will see the Review App getting ready for an automatic deploy
+
+![review deploy](16-reviewAppDeploy.png)
+
+The build manager now looks at this change live, checks the documentation in the pull request and merges the change into the master (or staging) branch. Now the automatic deploy also fires to bring the staging app back up with the latest version as well. 
+
+If you enabled the CI feature, you should be able to see this in your tests section
+
+![Testing](images/17-autoTest.png)
+
+The deploy will wait until test have run and passed, but once they do you now have a fully functional app that is linked to the pull reqeust that created it. Go ahead and open your app and check your change is functional.
+
+![review deployed](images/18-reviewDeployed.png)
+
+Looks good, go ahead and merge the pull request. This should also start another build on your staging app as it automatically deploys the lastest version of code. Once the testing has finished you should be able to view the build log from the staging pipeline.
+
+![build log](images/19-buildLog.png)
+
+Lastly, let's promote into production 
+
+![promote](images/20-promoteStaging.png)
+![promote](images/21-promoteStaging.png)
+![promote](images/22-promoteStaging.png)
 
 
